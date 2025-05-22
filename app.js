@@ -45,8 +45,13 @@ app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/jobs', authenticateUser,jobsRouter)  
 
 
+app.get('/', (req, res) => {
+  res.send('API is running ✅');
+});
 
 app.use(notFoundMiddleware);
+
+
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
